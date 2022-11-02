@@ -1,21 +1,28 @@
-<div class="mb-3">
-  <label for="exampleInputEmail1" class="form-label">Email address</label>
-  <input
-    type="email"
-    class="form-control"
-    id="exampleInputEmail1"
-    aria-describedby="emailHelp"
-  />
-  <div id="emailHelp" class="form-text">
-    We'll never share your email with anyone else.
+<div class="row g-3 mb-5">
+  <div class="col-sm">
+    <input type="text" class="form-control" placeholder="Todo..." />
+  </div>
+  <div class="col-sm-2">
+    <button type="button" class="btn btn-dark form-control">Add</button>
   </div>
 </div>
-<div class="mb-3">
-  <label for="exampleInputPassword1" class="form-label">Password</label>
-  <input type="password" class="form-control" id="exampleInputPassword1" />
-</div>
-<div class="mb-3 form-check">
-  <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-</div>
-<button type="submit" class="btn btn-primary">Submit</button>
+
+<ul class="list-group list-group-flush">
+  <li class="list-group-item" *ngFor="let item of todos; let i = index">
+    <span ngClass="{{item.check}}">{{i+1}} - {{item.text}}</span>
+    <button
+      type="button"
+      class="btn btn-warning btn-sm mx-2 float-end"
+      (click)="checkTodo(i)"
+    >
+      -
+    </button>
+    <button
+      type="button"
+      class="btn btn-danger btn-sm mx-2 float-end"
+      (click)="removeTodo(i)"
+    >
+      x
+    </button>
+  </li>
+</ul>

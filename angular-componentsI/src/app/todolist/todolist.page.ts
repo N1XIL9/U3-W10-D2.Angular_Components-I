@@ -26,4 +26,12 @@ export class TodolistPage implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  removeTodo(i: number) {
+    this.todos.splice(i, 1);
+  }
+
+  checkTodo(i: number) {
+    this.todos[i].check = this.todos[i].check === 'check' ? '' : 'check';
+  }
 }
