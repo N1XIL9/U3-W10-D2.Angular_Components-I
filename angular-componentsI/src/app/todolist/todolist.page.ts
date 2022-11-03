@@ -1,28 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from '../classes/todo';
 
 @Component({
   templateUrl: './todolist.page.html',
   styleUrls: ['./todolist.page.scss'],
 })
 export class TodolistPage implements OnInit {
-  todos = [
-    {
-      id: 1,
-      text: 'Testo di prova',
-      check: '',
-    },
-    {
-      id: 2,
-      text: 'Seconda prova',
-      check: 'check',
-    },
-    {
-      id: 3,
-      text: 'Terza prova',
-      check: '',
-    },
-  ];
+  todos: Todo[] = [];
 
+  todo = new Todo();
+
+  text: string = 'prova';
   constructor() {}
 
   ngOnInit(): void {}
@@ -33,5 +21,10 @@ export class TodolistPage implements OnInit {
 
   checkTodo(i: number) {
     this.todos[i].check = this.todos[i].check === 'check' ? '' : 'check';
+  }
+
+  addTodo() {
+    this.todos.push(this.todo);
+    this.todo = new Todo();
   }
 }

@@ -7,6 +7,7 @@ import { SignupPage } from './signup/signup.page';
 import { TodolistPage } from './todolist/todolist.page';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -29,8 +30,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, LoginPage, SignupPage, TodolistPage, HeaderComponent, FooterComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  declarations: [
+    AppComponent,
+    LoginPage,
+    SignupPage,
+    TodolistPage,
+    HeaderComponent,
+    FooterComponent,
+  ],
+  imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
